@@ -37,6 +37,7 @@
           packages = p: [p.${packageName}];
           buildInputs = with pkgs; [
             alejandra
+            haskellPackages.cabal-install
             haskellPackages.ghcid
             haskellPackages.haskell-language-server
             pre-commit
