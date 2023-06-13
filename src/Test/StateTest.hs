@@ -180,7 +180,7 @@ distinctTest =
         , testProperty "Every element repeated" $ \xs ->
             distinct (xs :: List Integer) == distinct (flatMap (\x -> x :. x :. Nil) xs)
         , testProperty "Order is from left to right" $ \xs ->
-            distinct (xs :: List Integer) == distinct (flatMap (\x -> x :. x :. Nil) xs)
+            distinct (xs :: List Integer) == distinct xs
         ]
 
 isHappyTest :: TestTree
