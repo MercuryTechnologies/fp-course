@@ -173,6 +173,8 @@ distinctTest =
             let cs = listh ['a' .. 'z'] in distinct cs @?= cs
         , testCase "Every element repeated" $
             let cs = listh ['a' .. 'z'] in distinct (flatMap (\x -> x :. x :. Nil) cs) @?= cs
+        , testCase "Elements repeated, order matters" $
+            let cs = listh [1, 1, 2, 3, 2] in distinct cs @?= listh [1, 2, 3]
         , testProperty "No repeats after distinct" $ \xs ->
             firstRepeat (distinct (xs :: List Integer)) == Empty
         , testProperty "Every element repeated" $ \xs ->
